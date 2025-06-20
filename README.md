@@ -55,8 +55,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What does `typedef struct { ... } Point;` achieve compared to `struct Point { ... };`?** *With typedef struct {...} we created a new type, you only have to wirte the name of the type, like Point = ... . That is not the same for struct Point{...}, there you have to write always struct before you declare a new var. .
-2. **How does the compiler lay out a `Point` in memory?** *The point are simply two type double numbers which sit in the memory like any other double value. In my case it's  -0x10(%rbp) and -0x8(%rbp).
+1. **What does `typedef struct { ... } Point;` achieve compared to `struct Point { ... };`?** *With typedef struct {...} we created a new type, you only have to wirte the name of the type, like Point = ... . That is not the same for struct Point{...}, there you have to write always struct before you declare a new var. .*
+2. **How does the compiler lay out a `Point` in memory?** *The point are simply two type double numbers which sit in the memory like any other double value. In my case it's  -0x10(%rbp) and -0x8(%rbp).*
 
 ---
 
@@ -73,8 +73,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **Why is the `-lm` flag necessary to resolve `sqrt`?** *With -lm we are linking to the compiled parth of the math.h library which uses many useful functions like sqrt(), which is not part of the basic c language.
-2. **What happens if you omit `-lm` when calling math functions?** *In my case the programe wont get even compiled, thats because we use a function that is not defined. The compiler simply doesn' t know what to do.
+1. **Why is the `-lm` flag necessary to resolve `sqrt`?** *With -lm we are linking to the compiled parth of the math.h library which uses many useful functions like sqrt(), which is not part of the basic c language.*
+2. **What happens if you omit `-lm` when calling math functions?** *In my case the programe wont get even compiled, thats because we use a function that is not defined. The compiler simply doesn' t know what to do.*
 
 ---
 
@@ -104,8 +104,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What are the advantages and drawbacks of a header-only library?**
-2. **How does `static inline` affect linkage and code size?**
+1. **What are the advantages and drawbacks of a header-only library?** *The main advantage of an header-only librarie is that you could use several small functions that you have writen in small programms and you only have to include them, you don't have to link any obeject datas.  The problem is, that you can't get these libraries to big, otherwise they get inefficient. And you have to use inline or static functions to avoid double definitoins.*
+2. **How does `static inline` affect linkage and code size?** *I tried it and it saves like 4byte. Thats not as much as I thaught, but I think it's because we use such a small header file. I have also read, that if I would use several .c files in one programm, that we would see a huge differense.
 
 ---
 
