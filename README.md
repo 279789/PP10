@@ -55,8 +55,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What does `typedef struct { ... } Point;` achieve compared to `struct Point { ... };`?**
-2. **How does the compiler lay out a `Point` in memory?**
+1. **What does `typedef struct { ... } Point;` achieve compared to `struct Point { ... };`?** *With typedef struct {...} we created a new type, you only have to wirte the name of the type, like Point = ... . That is not the same for struct Point{...}, there you have to write always struct before you declare a new var. .
+2. **How does the compiler lay out a `Point` in memory?** *The point are simply two type double numbers which sit in the memory like any other double value. In my case it's  -0x10(%rbp) and -0x8(%rbp).
 
 ---
 
