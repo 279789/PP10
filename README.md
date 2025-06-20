@@ -73,8 +73,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **Why is the `-lm` flag necessary to resolve `sqrt`?**
-2. **What happens if you omit `-lm` when calling math functions?**
+1. **Why is the `-lm` flag necessary to resolve `sqrt`?** *With -lm we are linking to the compiled parth of the math.h library which uses many useful functions like sqrt(), which is not part of the basic c language.
+2. **What happens if you omit `-lm` when calling math functions?** *In my case the programe wont get even compiled, thats because we use a function that is not defined. The compiler simply doesn' t know what to do.
 
 ---
 
