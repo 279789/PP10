@@ -159,8 +159,8 @@ urs at compile vs. link time?** *At compile time the compiler sees that main use
 
 #### Reflection Questions
 
-1. **How does `ar` create an archive, and how does the linker find `-lutil`?**
-2. **What is the purpose of `ldconfig`?**
+1. **How does `ar` create an archive, and how does the linker find `-lutil`?** * ar does create an archive, that holds all the objectdatas that is needed to define all symbols.* 
+2. **What is the purpose of `ldconfig`?** *In our case ldconfig is needed, so that the system is able to find the new librarie. Normally it's used for dynamic libraries, so that the compiler knows where to search these libraries.*
 
 ---
 
