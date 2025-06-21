@@ -211,8 +211,8 @@ urs at compile vs. link time?** *At compile time the compiler sees that main use
 /usr/share/doc/libjansson-dev
 /usr/share/doc/libjansson-dev/copyright
 /usr/lib/x86_64-linux-gnu/libjansson.so
-/usr/share/doc/libjansson-dev/changelog.Debian.gz
-2. **How does the linker know where to find `-ljansson`?**
+/usr/share/doc/libjansson-dev/changelog.Debian.gz*
+2. **How does the linker know where to find `-ljansson`?** * The l infront of -ljansson does mean librarie, so the linker knows that he has to search for a librarie called jansson. The linker than searches inside a few standard directories for libraries after the .so file from jansson, where all functions are defined. Usually the linker would find the librarie that way. If the linker doesn't find it inside the standard directoris, you have to give him the correct path.
 
 ---
 
