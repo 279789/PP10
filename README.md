@@ -196,7 +196,22 @@ urs at compile vs. link time?** *At compile time the compiler sees that main use
 
 #### Reflection Questions
 
-1. **What files does `libjansson-dev` install, and where?**
+1. **What files does `libjansson-dev` install, and where?** */.
+/usr
+/usr/include
+/usr/include/jansson.h
+/usr/include/jansson_config.h
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libjansson.a
+/usr/lib/x86_64-linux-gnu/pkgconfig
+/usr/lib/x86_64-linux-gnu/pkgconfig/jansson.pc
+/usr/share
+/usr/share/doc
+/usr/share/doc/libjansson-dev
+/usr/share/doc/libjansson-dev/copyright
+/usr/lib/x86_64-linux-gnu/libjansson.so
+/usr/share/doc/libjansson-dev/changelog.Debian.gz
 2. **How does the linker know where to find `-ljansson`?**
 
 ---
