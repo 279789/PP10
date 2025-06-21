@@ -128,9 +128,9 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **Why must you include `solutions/util.o` when linking instead of just the header?**
-2. **What symbol resolution occurs at compile vs. link time?**
-
+1. **Why must you include `solutions/util.o` when linking instead of just the header?** *The header only declares that there will be a function called clamp using these vars. But it doesn't have the information about what this function does. These informations are saved inside the util.c file. Therefor we need to link the object file util.o, so that our main function is able to call clamp.*
+2. **What symbol resolution occ
+urs at compile vs. link time?** *At compile time the compiler sees that main uses a function, which is declared inside the header. That is the information, that is needed, so that the compiler knows that for our example "clamp" is defined inside any file. At link time the compiler searches the object file for the "right functions" in our case he finds them insde the libutil.h defined "clamp" function. He know links the function to the part of the mainfunction, so that it works like the function would be inside of main.*
 ---
 
 ### Task 4: Packaging into `.a` and System Installation
