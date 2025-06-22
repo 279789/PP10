@@ -1,6 +1,6 @@
 # PP10
 
-## Goal
+### Did this task in 90 Minutes, but I had several problems here and there.
 
 In this exercise you will:
 
@@ -216,7 +216,7 @@ urs at compile vs. link time?** *At compile time the compiler sees that main use
 
 ---
 
-### Task 6: Building and Installing a GitHub Library
+### Task 6: Building and Installing a GitHub Library (This task didn't work right on my system, it said that the repo does not exisit, I did the task as good as I could, by searching for answers for the questions.)
 
 **Objective:** Download, build, and install a library from GitHub using its Makefile.
 
@@ -244,8 +244,8 @@ urs at compile vs. link time?** *At compile time the compiler sees that main use
 
 #### Reflection Questions
 
-1. **What does `make install` do, and how does `PREFIX` affect installation paths?**
-2. **How can you inspect a library’s exported symbols to verify installation?**
+1. **What does `make install` do, and how does `PREFIX` affect installation paths?** *Make install does exequte the makefile, so that the library gets copied to s location that is executable from the hole system, so that it is usable from anylocation on the system. The prefix does determine the main path of the program.
+2. **How can you inspect a library’s exported symbols to verify installation?** *With readelf or nm you are able to see the available symbols. You know that the library is complete if nm/readelf gives you a list with all symbols.
 
 ---
 
