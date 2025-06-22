@@ -1,6 +1,6 @@
 # PP10
 
-## Goal
+### Did this task in 90 Minutes, but I had several problems here and there.
 
 In this exercise you will:
 
@@ -55,8 +55,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What does `typedef struct { ... } Point;` achieve compared to `struct Point { ... };`?**
-2. **How does the compiler lay out a `Point` in memory?**
+1. **What does `typedef struct { ... } Point;` achieve compared to `struct Point { ... };`?** *With typedef struct {...} we created a new type, you only have to wirte the name of the type, like Point = ... . That is not the same for struct Point{...}, there you have to write always struct before you declare a new var. .*
+2. **How does the compiler lay out a `Point` in memory?** *The point are simply two type double numbers which sit in the memory like any other double value. In my case it's  -0x10(%rbp) and -0x8(%rbp).*
 
 ---
 
@@ -73,8 +73,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **Why is the `-lm` flag necessary to resolve `sqrt`?**
-2. **What happens if you omit `-lm` when calling math functions?**
+1. **Why is the `-lm` flag necessary to resolve `sqrt`?** *With -lm we are linking to the compiled parth of the math.h library which uses many useful functions like sqrt(), which is not part of the basic c language.*
+2. **What happens if you omit `-lm` when calling math functions?** *In my case the programe wont get even compiled, thats because we use a function that is not defined. The compiler simply doesn' t know what to do.*
 
 ---
 
@@ -104,8 +104,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What are the advantages and drawbacks of a header-only library?**
-2. **How does `static inline` affect linkage and code size?**
+1. **What are the advantages and drawbacks of a header-only library?** *The main advantage of an header-only librarie is that you could use several small functions that you have writen in small programms and you only have to include them, you don't have to link any obeject datas.  The problem is, that you can't get these libraries to big, otherwise they get inefficient. And you have to use inline or static functions to avoid double definitoins.*
+2. **How does `static inline` affect linkage and code size?** *I tried it and it saves like 4byte. Thats not as much as I thaught, but I think it's because we use such a small header file. I have also read, that if I would use several .c files in one programm, that we would see a huge differense.
 
 ---
 
@@ -128,9 +128,9 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **Why must you include `solutions/util.o` when linking instead of just the header?**
-2. **What symbol resolution occurs at compile vs. link time?**
-
+1. **Why must you include `solutions/util.o` when linking instead of just the header?** *The header only declares that there will be a function called clamp using these vars. But it doesn't have the information about what this function does. These informations are saved inside the util.c file. Therefor we need to link the object file util.o, so that our main function is able to call clamp.*
+2. **What symbol resolution occ
+urs at compile vs. link time?** *At compile time the compiler sees that main uses a function, which is declared inside the header. That is the information, that is needed, so that the compiler knows that for our example "clamp" is defined inside any file. At link time the compiler searches the object file for the "right functions" in our case he finds them insde the libutil.h defined "clamp" function. He know links the function to the part of the mainfunction, so that it works like the function would be inside of main.*
 ---
 
 ### Task 4: Packaging into `.a` and System Installation
@@ -159,8 +159,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **How does `ar` create an archive, and how does the linker find `-lutil`?**
-2. **What is the purpose of `ldconfig`?**
+1. **How does `ar` create an archive, and how does the linker find `-lutil`?** * ar does create an archive, that holds all the objectdatas that is needed to define all symbols.* 
+2. **What is the purpose of `ldconfig`?** *In our case ldconfig is needed, so that the system is able to find the new librarie. Normally it's used for dynamic libraries, so that the compiler knows where to search these libraries.*
 
 ---
 
@@ -196,12 +196,27 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What files does `libjansson-dev` install, and where?**
-2. **How does the linker know where to find `-ljansson`?**
+1. **What files does `libjansson-dev` install, and where?** */.
+/usr
+/usr/include
+/usr/include/jansson.h
+/usr/include/jansson_config.h
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libjansson.a
+/usr/lib/x86_64-linux-gnu/pkgconfig
+/usr/lib/x86_64-linux-gnu/pkgconfig/jansson.pc
+/usr/share
+/usr/share/doc
+/usr/share/doc/libjansson-dev
+/usr/share/doc/libjansson-dev/copyright
+/usr/lib/x86_64-linux-gnu/libjansson.so
+/usr/share/doc/libjansson-dev/changelog.Debian.gz*
+2. **How does the linker know where to find `-ljansson`?** * The l infront of -ljansson does mean librarie, so the linker knows that he has to search for a librarie called jansson. The linker than searches inside a few standard directories for libraries after the .so file from jansson, where all functions are defined. Usually the linker would find the librarie that way. If the linker doesn't find it inside the standard directoris, you have to give him the correct path.
 
 ---
 
-### Task 6: Building and Installing a GitHub Library
+### Task 6: Building and Installing a GitHub Library (This task didn't work right on my system, it said that the repo does not exisit, I did the task as good as I could, by searching for answers for the questions.)
 
 **Objective:** Download, build, and install a library from GitHub using its Makefile.
 
@@ -229,8 +244,8 @@ In this exercise you will:
 
 #### Reflection Questions
 
-1. **What does `make install` do, and how does `PREFIX` affect installation paths?**
-2. **How can you inspect a library’s exported symbols to verify installation?**
+1. **What does `make install` do, and how does `PREFIX` affect installation paths?** *Make install does exequte the makefile, so that the library gets copied to s location that is executable from the hole system, so that it is usable from anylocation on the system. The prefix does determine the main path of the program.
+2. **How can you inspect a library’s exported symbols to verify installation?** *With readelf or nm you are able to see the available symbols. You know that the library is complete if nm/readelf gives you a list with all symbols.
 
 ---
 
